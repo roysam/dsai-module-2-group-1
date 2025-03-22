@@ -1,0 +1,4 @@
+# .dbtignore
+
+seeds/olist_geolocation_dataset.csv
+seeds/olist_order_reviews_dataset.csv
