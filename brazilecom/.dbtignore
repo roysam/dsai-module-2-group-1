@@ -1,0 +1,4 @@
+# .dbtignore
+
+geolocation.csv
+order_reviews.csv
