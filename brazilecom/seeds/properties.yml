@@ -1,7 +1,8 @@
 version: 2
 
 seeds:
-  - name: olist_orders_dataset
+  - name: orders
+    descprition: "Source data about Orders from 3rd party source."
     columns:
       - name: order_id
         description: "The primary key for this table"
@@ -12,55 +13,50 @@ seeds:
         description: "The FP key to link to customer table"
         tests:
           - relationships:
-              to: ref('olist_customers_dataset')
+              to: ref('customers')
               field: customer_id
-  - name: olist_order_items_dataset
+  - name: order_items
+    descprition: "Source data about Order_items from 3rd party source."
     columns:
       - name: seller_id
         description: "The FP key to link to sellers table"
         tests:
           - relationships:
-              to: ref('olist_sellers_dataset')
+              to: ref('sellers')
               field: seller_id
       - name: product_id
         description: "The FP key to link to product table"
         tests:
           - relationships:
-              to: ref('olist_products_dataset')
+              to: ref('products')
               field: product_id
       - name: order_id
         description: "The FP key to link to order table"
         tests:
           - relationships:
-              to: ref('olist_orders_dataset')
+              to: ref('orders')
               field: order_id  
-  - name: olist_customers_dataset
+  - name: customers
+    descprition: "Source data about Customers from 3rd party source."
     columns:
       - name: customer_id
         description: "The primary key for this table"
         tests:
           - unique
           - not_null
-  - name: olist_sellers_dataset
+  - name: sellers
+    descprition: "Source data about Sellers from 3rd party source."
     columns:
       - name: seller_id
         description: "The primary key for this table"
         tests:
           - unique
           - not_null
-  - name: olist_products_dataset
+  - name: products
+    descprition: "Source data about Products from 3rd party source."
     columns:
       - name: product_id
         description: "The primary key for this table"
         tests:
           - unique
           - not_null
-  - name: olist_order_payments_dataset
-    columns:
-      - name: order_id
-        description: "The FP key to link to order table"
-        tests:
-          - relationships:
-              to: ref('olist_orders_dataset')
-              field: order_id
-    
