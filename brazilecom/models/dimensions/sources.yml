@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: dim_customer
+    description: "Dimension table for customers"
+    config:
+      schema: dimensions
+      materialized: table
+
+  - name: dim_sellers
+    description: "Dimension table for sellers"
+    config:
+      schema: dimensions
+      materialized: table
+
+  - name: dim_products
+    description: "Dimension table for products with product category name obtained from product_category table"
+    config:
+      schema: dimensions
+      materialized: table
+  
+  - name: dim_geolocation
+    description: "Dimension table for geolocation"
+    config:
+      schema: dimensions
+      materialized: table
+
+  - name: dim_orders
+    description: "Dimension table for orders with status delivered, invoiced, shipped, processing"
+    config:
+      schema: dimensions
+      materialized: table
+  
+  - name: dim_order_items
+    description: "Dimension table for orders items"
+    config:
+      schema: dimensions
+      materialized: table
