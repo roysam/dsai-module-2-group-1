@@ -1,6 +1,19 @@
 version: 2
 
 models:
+
+  - name: fact_orders
+    description: "Fact table for orders with status delivered, invoiced, shipped, processing"
+    config:
+      schema: facts
+      materialized: table
+  
+  - name: fact_order_items
+    description: "Fact table for orders items"
+    config:
+      schema: facts
+      materialized: table
+
   - name: fact_seller_performance
     description: "Fact table for seller performance metrics"
     config:
@@ -21,6 +34,12 @@ models:
  
   - name: fact_top_product_per_seller_geolocation
     description: "Fact table containing top selling product for each seller with geolocation."
+    config:
+      schema: facts
+      materialized: table
+
+  - name: fact_days_to_delivery
+    description: "Fact table showing no of days taken to deliver the product to customer."
     config:
       schema: facts
       materialized: table
