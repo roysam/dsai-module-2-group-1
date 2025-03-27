@@ -1,7 +1,7 @@
 -- Dimension Table: dim_products
 SELECT 
     p.product_id,
-    COALESCE(pt.product_category_name_english, 'Unknown') AS product_category,
+    COALESCE(pt.product_category_name_english, 'Others') AS product_category,
     p.product_weight_g,
     p.product_length_cm,
     p.product_height_cm,
