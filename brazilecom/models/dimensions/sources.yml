@@ -24,15 +24,3 @@ models:
     config:
       schema: dimensions
       materialized: table
-
-  - name: dim_orders
-    description: "Dimension table for orders with status delivered, invoiced, shipped, processing"
-    config:
-      schema: dimensions
-      materialized: table
-  
-  - name: dim_order_items
-    description: "Dimension table for orders items"
-    config:
-      schema: dimensions
-      materialized: table
