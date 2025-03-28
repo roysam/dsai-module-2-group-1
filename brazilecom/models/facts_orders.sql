@@ -12,7 +12,7 @@ WITH
     combined as (
     -- only look at the confirmed order. Exclude (Canceled and Created)
         select orders.order_id, orders.customer_id, orders.order_status, 
-        EXTRACT(YEAR FROM orders.order_purchase_timestamp) as order_year,
+        EXTRACT(YEAR FROM date(orders.order_purchase_timestamp)) as order_year,
         orders.order_purchase_timestamp, orders.order_approved_at, 
         orders.order_delivered_carrier_date, orders.order_delivered_customer_date,
         orders.order_estimated_delivery_date, 

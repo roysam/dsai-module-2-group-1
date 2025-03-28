@@ -1,12 +1,11 @@
 brazilecom:
-  target: brazilecom 
+  target: dev 
   outputs:
-    threads: 1
-    location: US
-    priority: interactive
-    brazilecom:
+    dev:
+      threads: 1
+      location: US
       type: bigquery
-      method: oauth
       project: premium-node-451703-i2 # replace with Roy's project ID
-      dataset: "brazilecom" # replace with Roy'ss dataset name
-      retries: 2
+      dataset: brazilecom # replace with Roy'ss dataset name
+      method: oauth
+      timeout_seconds: 300
