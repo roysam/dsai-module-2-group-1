@@ -4,10 +4,13 @@ sources:
   - name: brazilecom_raw_data
     description: "Source table from the raw dataset"
 
-    database: dsai-module-2-project # GCP BQ Project name
+    #database: dsai-module-2-project # GCP BQ Project name
     schema: brazilecom  # BQ Dataset name
     tables:
     - name: orders
+      meta:
+        dagster:
+            asset_key: ["orders"] 
       description: "Orders table containing all customer orders."
       columns:
           - name: order_id
@@ -31,6 +34,9 @@ sources:
             description: "Timestamp of the estimated delivery date."
 
     - name: order_items
+      meta:
+        dagster:
+            asset_key: ["order_items"] 
       description: "Details of products purchased in each order."
       columns:
           - name: order_id
@@ -47,6 +53,9 @@ sources:
             description: "Shipping cost for the item."
 
     - name: payments
+      meta:
+        dagster:
+            asset_key: ["payments"] 
       description: "Payment transactions for each order."
       columns:
           - name: order_id
@@ -59,6 +68,9 @@ sources:
             description: "Amount paid for the order."
 
     - name: customer
+      meta:
+        dagster:
+            asset_key: ["customer"] 
       description: "Customer information."
       columns:
           - name: customer_id
@@ -74,6 +86,9 @@ sources:
             description: "City where the customer is located."
 
     - name: sellers
+      meta:
+        dagster:
+            asset_key: ["sellers"] 
       description: "Seller details."
       columns:
           - name: seller_id
@@ -89,6 +104,9 @@ sources:
             description: "City where the seller is located."
 
     - name: products
+      meta:
+        dagster:
+            asset_key: ["products"] 
       description: "Product catalog."
       columns:
           - name: product_id
@@ -100,6 +118,9 @@ sources:
             description: "Category of the product."
 
     - name: geolocation
+      meta:
+        dagster:
+            asset_key: ["geolocation"] 
       description: "Geolocation mapping of customers and sellers."
       columns:
           - name: geolocation_zip_code_prefix
@@ -114,6 +135,9 @@ sources:
             description: "City name."
 
     - name: product_translation
+      meta:
+        dagster:
+            asset_key: ["product_translation"] 
       description: "Translation mapping for product categories."
       columns:
           - name: product_category_name
