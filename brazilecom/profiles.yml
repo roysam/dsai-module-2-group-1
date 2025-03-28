@@ -1,11 +1,14 @@
 brazilecom:
-  target: dev 
   outputs:
     dev:
-      threads: 1
-      location: US
+      dataset: brazilecom
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: C:/Users/User/.dbt/dsai-module-2-project-key.json
+      location: asia-southeast1
+      method: service-account
+      priority: interactive
+      project: dsai-module-2-project
+      threads: 3
       type: bigquery
-      project: premium-node-451703-i2 # replace with Roy's project ID
-      dataset: brazilecom # replace with Roy'ss dataset name
-      method: oauth
-      timeout_seconds: 300
+  target: dev

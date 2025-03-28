@@ -1,0 +1,122 @@
+version: 2
+
+sources:
+  - name: brazilecom_raw_data
+    description: "Source table from the raw dataset"
+
+    database: dsai-module-2-project # GCP BQ Project name
+    schema: brazilecom  # BQ Dataset name
+    tables:
+    - name: orders
+      description: "Orders table containing all customer orders."
+      columns:
+          - name: order_id
+            description: "Primary key for orders."
+            tests:
+              - unique
+              - not_null
+          - name: customer_id
+            description: "Foreign key linking to customers."
+          - name: order_status
+            description: "Status of the order."
+          - name: order_purchase_timestamp
+            description: "Timestamp when the order was placed."
+          - name: order_approved_at
+            description: "Timestamp when the order was approved."
+          - name: order_delivered_carrier_date
+            description: "Timestamp when the order was shipped."
+          - name: order_delivered_customer_date
+            description: "Timestamp when the order was delivered to customer."
+          - name: order_estimated_delivery_date
+            description: "Timestamp of the estimated delivery date."
+
+    - name: order_items
+      description: "Details of products purchased in each order."
+      columns:
+          - name: order_id
+            description: "Foreign key linking to orders."
+          - name: order_item_id
+            description: "Individual order items id linked to orders."  
+          - name: product_id
+            description: "Foreign key linking to products."
+          - name: seller_id
+            description: "Foreign key linking to sellers."
+          - name: price
+            description: "Price of the product."
+          - name: freight_value
+            description: "Shipping cost for the item."
+
+    - name: payments
+      description: "Payment transactions for each order."
+      columns:
+          - name: order_id
+            description: "Foreign key linking to orders."
+          - name: payment_type
+            description: "Payment method used."
+          - name: payment_installments
+            description: "No of Payment installments."  
+          - name: payment_value
+            description: "Amount paid for the order."
+
+    - name: customer
+      description: "Customer information."
+      columns:
+          - name: customer_id
+            description: "Primary key for customers."
+            tests:
+              - unique
+              - not_null
+          - name: customer_unique_id
+            description: "Customer Identification details"
+          - name: customer_state
+            description: "State where the customer is located."
+          - name: customer_city
+            description: "City where the customer is located."
+
+    - name: sellers
+      description: "Seller details."
+      columns:
+          - name: seller_id
+            description: "Primary key for sellers."
+            tests:
+              - unique
+              - not_null
+          - name: seller_zipcode_prefix
+            description: "zipcode where the seller is located."
+          - name: customer_state
+            description: "State where the customer is located."
+          - name: seller_city
+            description: "City where the seller is located."
+
+    - name: products
+      description: "Product catalog."
+      columns:
+          - name: product_id
+            description: "Primary key for products."
+            tests:
+              - unique
+              - not_null
+          - name: product_category_name
+            description: "Category of the product."
+
+    - name: geolocation
+      description: "Geolocation mapping of customers and sellers."
+      columns:
+          - name: geolocation_zip_code_prefix
+            description: "Zip code prefix for location mapping."
+          - name: geolocation_lat
+            description: "Latidude of the location."  
+          - name: geolocation_lng
+            description: "Longitude of the location."
+          - name: geolocation_state
+            description: "State name."
+          - name: geolocation_city
+            description: "City name."
+
+    - name: product_translation
+      description: "Translation mapping for product categories."
+      columns:
+          - name: product_category_name
+            description: "Product category in the original language."
+          - name: product_category_name_english
+            description: "Translated product category name in English."

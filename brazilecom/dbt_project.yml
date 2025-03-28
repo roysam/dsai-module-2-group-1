@@ -27,8 +27,23 @@ clean-targets:
 
 require-dbt-version: [">=1.0.0", "<2.0.0"]
 
+#seeds:
+#  brzilecom:
+#    +schema: raw
+
+# Configuring models
+# Full documentation: https://docs.getdbt.com/docs/configuring-models
+
+# In this example config, we tell dbt to build all models in the example/
+# directory as views. These settings can be overridden in the individual model
+# files using the `{{ config(...) }}` macro.
 models:
   brazilecom:
-      materialized: table
-      star:
-        materialized: table
+    # Config indicated by + and applies to all files under models/example/
+    dimensions:
+      +schema: dimensions
+      +materialized: table
+    facts:
+      +schema: facts
+      +materialized: table
+

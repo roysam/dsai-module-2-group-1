@@ -1,0 +1,66 @@
+version: 2
+
+models:
+
+  - name: fact_orders
+    description: "Fact table for orders with status delivered, invoiced, shipped, processing"
+    config:
+      schema: facts
+      materialized: table
+      meta:
+        dagster:
+          group: Facts
+  
+  - name: fact_order_items
+    description: "Fact table for orders items"
+    config:
+      schema: facts
+      materialized: table
+      meta:
+        dagster:
+          group: Facts
+
+  - name: fact_seller_performance
+    description: "Fact table for seller performance metrics"
+    config:
+      schema: facts
+      materialized: table
+      meta:
+        dagster:
+          group: Facts
+
+  - name: fact_top_selling_products
+    description: "Fact table for top-selling products and revenue generated."
+    config:
+      schema: facts
+      materialized: table
+      meta:
+        dagster:
+          group: Facts
+
+  - name: fact_geolocation_sales
+    description: "Fact table containing geolocation-based sales volume distribution by product."
+    config:
+      schema: facts
+      materialized: table
+      meta:
+        dagster:
+          group: Facts
+
+  - name: fact_top_product_per_seller_geolocation
+    description: "Fact table containing top selling product for each seller with geolocation."
+    config:
+      schema: facts
+      materialized: table
+      meta:
+        dagster:
+          group: Facts
+
+  - name: fact_days_to_delivery
+    description: "Fact table showing no of days taken to deliver the product to customer."
+    config:
+      schema: facts
+      materialized: table
+      meta:
+        dagster:
+          group: Facts
